@@ -1,7 +1,6 @@
-import detectEthereumProvider from '@metamask/detect-provider';
-import { ethers } from 'ethers';
-import Web3Modal from 'web3modal';
-import WalletConnectProvider from '@walletconnect/web3-provider';
+import { ethers, BrowserProvider, formatEther, parseEther } from 'ethers';
+import { getAccount, getNetwork, switchNetwork, disconnect } from '@wagmi/core';
+import { config } from '../config/rabbykit';
 
 class WalletService {
   constructor() {
@@ -9,64 +8,37 @@ class WalletService {
     this.signer = null;
     this.address = null;
     this.chainId = null;
-    this.web3Modal = null;
     this.isConnected = false;
-
-    this.initWeb3Modal();
   }
 
-  // Inicializar Web3Modal con diferentes proveedores
-  initWeb3Modal() {
-    const providerOptions = {
-      walletconnect: {
-        package: WalletConnectProvider,
-        options: {
-          infuraId: process.env.REACT_APP_INFURA_ID || "YOUR_INFURA_ID",
-          rpc: {
-            1: "https://mainnet.infura.io/v3/YOUR_INFURA_ID",
-            137: "https://polygon-rpc.com",
-            80001: "https://rpc-mumbai.matic.today"
-          }
-        }
-      }
-    };
-
-    this.web3Modal = new Web3Modal({
-      cacheProvider: true,
-      providerOptions,
-      disableInjectedProvider: false,
-    });
-  }
-
-  // Conectar wallet
+  // Conectar wallet usando RabbyKit
   async connectWallet() {
     try {
-      // Limpiar cache si existe
-      if (this.web3Modal.cachedProvider) {
-        await this.web3Modal.clearCachedProvider();
+      // RabbyKit maneja la conexión automáticamente
+      // Solo necesitamos obtener los datos actuales
+      const account = getAccount(config);
+      const network = getNetwork(config);
+
+      if (account.address) {
+        // Crear provider desde el conector actual
+        if (window.ethereum) {
+          this.provider = new BrowserProvider(window.ethereum);
+          this.signer = await this.provider.getSigner();
+        }
+
+        this.address = account.address;
+        this.chainId = network.chain?.id;
+        this.isConnected = account.isConnected;
+
+        return {
+          success: true,
+          address: account.address,
+          chainId: network.chain?.id,
+          networkName: network.chain?.name
+        };
+      } else {
+        throw new Error('No hay wallet conectado');
       }
-
-      const instance = await this.web3Modal.connect();
-      const provider = new ethers.providers.Web3Provider(instance);
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-      const network = await provider.getNetwork();
-
-      this.provider = provider;
-      this.signer = signer;
-      this.address = address;
-      this.chainId = network.chainId;
-      this.isConnected = true;
-
-      // Configurar listeners para cambios
-      this.setupEventListeners(instance);
-
-      return {
-        success: true,
-        address,
-        chainId: network.chainId,
-        networkName: network.name
-      };
 
     } catch (error) {
       console.error('Error conectando wallet:', error);
@@ -77,54 +49,10 @@ class WalletService {
     }
   }
 
-  // Conectar solo MetaMask
-  async connectMetaMask() {
-    try {
-      const provider = await detectEthereumProvider();
-
-      if (!provider) {
-        throw new Error('MetaMask no está instalado');
-      }
-
-      // Solicitar conexión
-      await provider.request({ method: 'eth_requestAccounts' });
-
-      const web3Provider = new ethers.providers.Web3Provider(provider);
-      const signer = web3Provider.getSigner();
-      const address = await signer.getAddress();
-      const network = await web3Provider.getNetwork();
-
-      this.provider = web3Provider;
-      this.signer = signer;
-      this.address = address;
-      this.chainId = network.chainId;
-      this.isConnected = true;
-
-      // Setup event listeners
-      this.setupEventListeners(provider);
-
-      return {
-        success: true,
-        address,
-        chainId: network.chainId,
-        networkName: network.name
-      };
-
-    } catch (error) {
-      console.error('Error conectando MetaMask:', error);
-      return {
-        success: false,
-        error: error.message
-      };
-    }
-  }
-
-  // Desconectar wallet
+  // Desconectar wallet usando wagmi
   async disconnectWallet() {
     try {
-      if (this.web3Modal) {
-        await this.web3Modal.clearCachedProvider();
-      }
+      await disconnect(config);
 
       this.provider = null;
       this.signer = null;
@@ -139,13 +67,11 @@ class WalletService {
     }
   }
 
-  // Verificar si está conectado
+  // Verificar si está conectado usando wagmi
   async isWalletConnected() {
     try {
-      if (!this.provider) return false;
-
-      const accounts = await this.provider.listAccounts();
-      return accounts.length > 0;
+      const account = getAccount(config);
+      return account.isConnected;
     } catch (error) {
       console.error('Error verificando conexión:', error);
       return false;
@@ -162,7 +88,7 @@ class WalletService {
 
       return {
         success: true,
-        balance: ethers.utils.formatEther(balance),
+        balance: formatEther(balance),
         balanceWei: balance.toString()
       };
     } catch (error) {
@@ -171,78 +97,22 @@ class WalletService {
     }
   }
 
-  // Cambiar red
+  // Cambiar red usando wagmi
   async switchNetwork(chainId) {
     try {
-      if (!this.provider) throw new Error('Wallet no conectado');
-
-      const chainIdHex = `0x${chainId.toString(16)}`;
-
-      await this.provider.provider.request({
-        method: 'wallet_switchEthereumChain',
-        params: [{ chainId: chainIdHex }],
-      });
-
+      await switchNetwork(config, { chainId });
+      
       // Actualizar chainId local
-      const network = await this.provider.getNetwork();
-      this.chainId = network.chainId;
+      this.chainId = chainId;
 
-      return { success: true, chainId: network.chainId };
+      return { success: true, chainId };
     } catch (error) {
-      // Si la red no existe, intentar agregarla
-      if (error.code === 4902) {
-        return await this.addNetwork(chainId);
-      }
-
       console.error('Error cambiando red:', error);
       return { success: false, error: error.message };
     }
   }
 
-  // Agregar nueva red
-  async addNetwork(chainId) {
-    const networks = {
-      137: {
-        chainId: '0x89',
-        chainName: 'Polygon Mainnet',
-        rpcUrls: ['https://polygon-rpc.com/'],
-        nativeCurrency: {
-          name: 'MATIC',
-          symbol: 'MATIC',
-          decimals: 18
-        },
-        blockExplorerUrls: ['https://polygonscan.com/']
-      },
-      80001: {
-        chainId: '0x13881',
-        chainName: 'Mumbai Testnet',
-        rpcUrls: ['https://rpc-mumbai.matic.today/'],
-        nativeCurrency: {
-          name: 'MATIC',
-          symbol: 'MATIC',
-          decimals: 18
-        },
-        blockExplorerUrls: ['https://mumbai.polygonscan.com/']
-      }
-    };
-
-    try {
-      const networkConfig = networks[chainId];
-      if (!networkConfig) {
-        throw new Error('Red no soportada');
-      }
-
-      await this.provider.provider.request({
-        method: 'wallet_addEthereumChain',
-        params: [networkConfig],
-      });
-
-      return { success: true };
-    } catch (error) {
-      console.error('Error agregando red:', error);
-      return { success: false, error: error.message };
-    }
-  }
+  // Las redes se configuran automáticamente en RabbyKit
 
   // Firmar mensaje
   async signMessage(message) {
@@ -270,7 +140,7 @@ class WalletService {
 
       const transaction = {
         to,
-        value: ethers.utils.parseEther(amount.toString()),
+        value: parseEther(amount.toString()),
         data
       };
 
@@ -287,52 +157,17 @@ class WalletService {
     }
   }
 
-  // Setup event listeners para cambios de cuenta/red
-  setupEventListeners(provider) {
-    if (provider.on) {
-      // Cambio de cuenta
-      provider.on('accountsChanged', (accounts) => {
-        if (accounts.length === 0) {
-          this.disconnectWallet();
-        } else {
-          this.address = accounts[0];
-          // Emit custom event for UI updates
-          window.dispatchEvent(new CustomEvent('walletAccountChanged', {
-            detail: { address: accounts[0] }
-          }));
-        }
-      });
-
-      // Cambio de red
-      provider.on('chainChanged', (chainId) => {
-        this.chainId = parseInt(chainId, 16);
-        // Emit custom event for UI updates
-        window.dispatchEvent(new CustomEvent('walletChainChanged', {
-          detail: { chainId: this.chainId }
-        }));
-      });
-
-      // Desconexión
-      provider.on('disconnect', () => {
-        this.disconnectWallet();
-        window.dispatchEvent(new CustomEvent('walletDisconnected'));
-      });
-    }
-  }
-
-  // Obtener información de la wallet actual
+  // Obtener información de la wallet actual usando wagmi
   getWalletInfo() {
+    const account = getAccount(config);
+    const network = getNetwork(config);
+    
     return {
-      address: this.address,
-      chainId: this.chainId,
-      isConnected: this.isConnected,
-      provider: this.provider ? 'Connected' : null
+      address: account.address,
+      chainId: network.chain?.id,
+      isConnected: account.isConnected,
+      provider: account.connector?.name || null
     };
-  }
-
-  // Verificar si MetaMask está instalado
-  isMetaMaskInstalled() {
-    return typeof window !== 'undefined' && window.ethereum && window.ethereum.isMetaMask;
   }
 
   // Obtener contratos ya instanciados

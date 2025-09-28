@@ -1,0 +1,45 @@
+{
+  "name": "zkp-login-backend",
+  "version": "1.0.0",
+  "description": "Backend Express.js para autenticación ZK con Circom, snarkjs y blockchain",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest",
+    "compile-circuits": "node scripts/compile-circuits.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.15.0",
+    "snarkjs": "^0.7.2",
+    "circomlib": "^2.0.5",
+    "crypto-js": "^4.2.0",
+    "uuid": "^9.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "express-rate-limit": "^6.8.1",
+    "morgan": "^1.10.0",
+    "compression": "^1.7.4",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.6.2",
+    "supertest": "^6.3.3"
+  },
+  "keywords": [
+    "zero-knowledge",
+    "zk-proofs",
+    "circom",
+    "snarkjs",
+    "blockchain",
+    "polygon",
+    "authentication",
+    "privacy"
+  ],
+  "author": "ZK Login Team",
+  "license": "MIT"
+}

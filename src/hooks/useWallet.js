@@ -258,6 +258,7 @@ const useWallet = () => {
       4: 'Rinkeby',
       5: 'Goerli',
       137: 'Polygon',
+      80002: 'Amoy Testnet',
       80001: 'Mumbai Testnet',
       56: 'BSC Mainnet',
       97: 'BSC Testnet'

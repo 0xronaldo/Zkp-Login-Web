@@ -1,22 +1,27 @@
-import logo from "./logo.svg";
+import React from 'react';
+import Login from './components/Login/Login';
 import "./App.css";
 
+/**
+ * Componente principal de la aplicación
+ * 
+ * Esta aplicación demuestra un sistema de autenticación usando:
+ * - Zero-Knowledge Proofs (ZKproof)
+ * - Blockchain (Polygon Mumbai)
+ * - React + ethers.js
+ * - Circom + snarkjs
+ * 
+ * El flujo es simple:
+ * 1. Usuario conecta wallet (MetaMask/WalletConnect)
+ * 2. Usuario se registra o hace login con contraseña
+ * 3. Se genera una prueba ZK sin revelar la contraseña
+ * 4. La prueba se verifica en un contrato inteligente
+ */
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Iniciar sesion en Cuenta</p>
-        <p>Usuario</p>
-        <input type="text" placeholder="Usuario" />
-        <p>Contraseña</p>
-        <input type="password" placeholder="Contraseña" />
-        <br />
-        {/*Login construir un boton de acceso */}
-        <button>Iniciar sesion</button>
-        <p> Registrarse </p>
-        <p>¿Olvidaste tu contraseña?</p>
-      </header>
+      {/* Componente principal de Login con ZK */}
+      <Login />
     </div>
   );
 }

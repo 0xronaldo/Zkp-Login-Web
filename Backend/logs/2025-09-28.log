@@ -1,0 +1,65 @@
+{"timestamp":"2025-09-28T00:34:31.001Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":43950}
+{"timestamp":"2025-09-28T00:34:31.003Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":43950}
+{"timestamp":"2025-09-28T00:34:31.004Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":43950}
+{"timestamp":"2025-09-28T00:34:31.004Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":43950}
+{"timestamp":"2025-09-28T00:34:31.006Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":43950,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T00:47:42.743Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":64226}
+{"timestamp":"2025-09-28T00:47:42.776Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":64226}
+{"timestamp":"2025-09-28T00:47:42.780Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":64226}
+{"timestamp":"2025-09-28T00:47:42.780Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":64226}
+{"timestamp":"2025-09-28T00:47:42.785Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":64226,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T01:07:50.067Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":72989}
+{"timestamp":"2025-09-28T01:07:50.119Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":72989}
+{"timestamp":"2025-09-28T01:07:50.124Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":72989}
+{"timestamp":"2025-09-28T01:07:50.125Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":72989}
+{"timestamp":"2025-09-28T01:07:50.134Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":72989,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T01:08:07.194Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":73017}
+{"timestamp":"2025-09-28T01:08:07.197Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":73017}
+{"timestamp":"2025-09-28T01:08:07.200Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":73017}
+{"timestamp":"2025-09-28T01:08:07.201Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":73017}
+{"timestamp":"2025-09-28T01:08:07.204Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":73017,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T01:08:15.081Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":73031}
+{"timestamp":"2025-09-28T01:08:15.083Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":73031}
+{"timestamp":"2025-09-28T01:08:15.085Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":73031}
+{"timestamp":"2025-09-28T01:08:15.085Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":73031}
+{"timestamp":"2025-09-28T01:08:15.089Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":73031,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T01:08:16.358Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":73042}
+{"timestamp":"2025-09-28T01:08:16.360Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":73042}
+{"timestamp":"2025-09-28T01:08:16.361Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":73042}
+{"timestamp":"2025-09-28T01:08:16.362Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":73042}
+{"timestamp":"2025-09-28T01:08:16.364Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":73042,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T01:08:33.578Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":73056}
+{"timestamp":"2025-09-28T01:08:33.579Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":73056}
+{"timestamp":"2025-09-28T01:08:33.582Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":73056}
+{"timestamp":"2025-09-28T01:08:33.582Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":73056}
+{"timestamp":"2025-09-28T01:08:33.585Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":73056,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T01:08:34.825Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":73067}
+{"timestamp":"2025-09-28T01:08:34.829Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":73067}
+{"timestamp":"2025-09-28T01:08:34.832Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":73067}
+{"timestamp":"2025-09-28T01:08:34.833Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":73067}
+{"timestamp":"2025-09-28T01:08:34.837Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":73067,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T01:08:49.790Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":73082}
+{"timestamp":"2025-09-28T01:08:49.792Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":73082}
+{"timestamp":"2025-09-28T01:08:49.795Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":73082}
+{"timestamp":"2025-09-28T01:08:49.796Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":73082}
+{"timestamp":"2025-09-28T01:08:49.799Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":73082,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T01:09:02.504Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":73096}
+{"timestamp":"2025-09-28T01:09:02.507Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":73096}
+{"timestamp":"2025-09-28T01:09:02.509Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":73096}
+{"timestamp":"2025-09-28T01:09:02.509Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":73096}
+{"timestamp":"2025-09-28T01:09:02.512Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":73096,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T01:09:18.930Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":73158}
+{"timestamp":"2025-09-28T01:09:18.932Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":73158}
+{"timestamp":"2025-09-28T01:09:18.933Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":73158}
+{"timestamp":"2025-09-28T01:09:18.934Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":73158}
+{"timestamp":"2025-09-28T01:09:18.936Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":73158,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T01:09:44.639Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":73191}
+{"timestamp":"2025-09-28T01:09:44.640Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":73191}
+{"timestamp":"2025-09-28T01:09:44.642Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":73191}
+{"timestamp":"2025-09-28T01:09:44.642Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":73191}
+{"timestamp":"2025-09-28T01:09:44.644Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":73191,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}
+{"timestamp":"2025-09-28T01:13:34.443Z","level":"INFO","message":"🚀 Inicializando servidor ZK Login...","pid":73725}
+{"timestamp":"2025-09-28T01:13:34.636Z","level":"INFO","message":"✅ Servicio ZK inicializado","pid":73725}
+{"timestamp":"2025-09-28T01:13:34.638Z","level":"INFO","message":"✅ Servicio blockchain inicializado","pid":73725}
+{"timestamp":"2025-09-28T01:13:34.639Z","level":"INFO","message":"✅ Servicio privado.id configurado","pid":73725}
+{"timestamp":"2025-09-28T01:13:34.642Z","level":"INFO","message":"🎉 Servidor iniciado exitosamente!","pid":73725,"port":"5000","mode":"development","network":"amoy","urls":{"server":"http://localhost:5000","health":"http://localhost:5000/health","info":"http://localhost:5000/info"}}

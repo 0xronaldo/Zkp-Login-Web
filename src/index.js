@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { WagmiProvider } from 'wagmi';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { RabbyKitProvider } from '@rabby-wallet/rabbykit';
+import { config } from './config/rabbykit';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Crear cliente de React Query
+const queryClient = new QueryClient();
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RabbyKitProvider>
+          <App />
+        </RabbyKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   </React.StrictMode>
 );
 
